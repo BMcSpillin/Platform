@@ -1,25 +1,19 @@
-# class Candidate
-#   include HTTParty
+class Candidate
+  require 'httParty'
 
-#   base_uri "http://api.votesmart.org/"
+  attr_accessor :firstName, :lastName, 
 
-#   attr_accessor :ballotName, :electionOffice
+  def initialize
+    puts "Vote for me!"
+    # @zip5 = @user.zip
+    # puts @zip5
+    # @zip4 = @user.zip4
+  end
 
-#   def initialize(zip5, ballotName, electionOffice)
-#     puts "Vote for me!"
-#     self.zip5 = zip5
-#     self.ballotName = ballotName
-#     self.electionOffice = electionOffice
-#     # @zip5 = @user.zip
-#     # puts @zip5
-#     # @zip4 = @user.zip4
-#   end
+  def firstName
+  end
+end
 
-#   def findUserCandidates
-
-#   end
-
-# end
   # @user = User.where(id: session[:user_id]).first
   #   # @zip5 = 11105
   #   @zip5 = 79901
@@ -36,4 +30,6 @@
   #   # Call and parse API to get candidate BIO
   #   @candidateBio = HTTParty.get "http://api.votesmart.org/CandidateBio.getBio?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
   #   @candidateBioHash = @candidateBio.parsed_response["bio"]["candidate"]
+
   #   @candidatePhoto = @candidateBioHash["photo"]
+
