@@ -1,0 +1,12 @@
+<%= form_for @user, :url => :location, method: :post do |f| %>
+  <%= f.label :zip, 'your zip code' %>
+  <%= f.text_field :zip %>
+  <%= f.submit "find me" %>
+<% end %>
+
+<!-- <#%= form_tag(action: "create", method: "post") do %>
+  <#%= hidden_field_tag(:id) %>
+  <#%= label_tag(:zip, "your zip code") %>
+  <#%= text_field_tag(:zip) %>
+  <#%= submit_tag("find me") %>
+<#% end %> -->
