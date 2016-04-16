@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408164317) do
+ActiveRecord::Schema.define(version: 20160415193746) do
 
   create_table "users", force: :cascade do |t|
-    t.integer  "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "zip5"
+    t.string   "zip4"
   end
 
 end
