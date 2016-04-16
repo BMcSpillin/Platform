@@ -1,0 +1,16 @@
+<% while i < @candidateHash.size %>
+  <% cand = @candidateHash[i] %>
+  <ul>
+<!--     <#% if cand["candidateId"] == @candidateHash[@i]["candidateId"] %>
+      <#% i += 1 %>
+    <#% else %> -->
+    <li>
+      <img src="<%= @candidatePhoto %>"></img>
+      <%= cand["ballotName"] %>
+      <%= cand["electionParties"] %>
+      <%= cand["electionDistrictName"] %>
+      <%= cand["electionOffice"] %>
+      <%= cand["officeName"] %>
+    </li>
+  </ul>
+    <% i += 1 %>
