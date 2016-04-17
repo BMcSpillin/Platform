@@ -1,10 +1,12 @@
-<%= form_for @user, :url => :location, method: :post do |f| %>
-  <%= f.label :zip5, 'your zip code' %>
-  <%= f.text_field :zip5 %>
-  <%= f.label :zip4, 'the rest of your zip code' %>
-  <%= f.text_field :zip4 %>
-  <%= f.submit "find me" %>
-<% end %>
+<div class="form-group">
+  <%= form_for @user, :url => :location, method: :post do |f| %>
+    <%= f.label :zip5, 'your zip code' %>
+    <%= f.text_field :zip5, {:class => "form-control"} %>
+    <%= f.label :zip4, 'the rest of your zip code' %>
+    <%= f.text_field :zip4, {:class => "form-control"} %>
+    <%= f.submit "find me", {:class => "btn btn-default"} %>
+  <% end %>
+</div>
 
 <!-- <#%= form_tag(action: "create", method: "post") do %>
   <#%= hidden_field_tag(:id) %>
