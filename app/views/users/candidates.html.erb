@@ -3,14 +3,16 @@
   <% cand = @candidateHash[i] %>
 <!-- Set candidate ID to call other relevant hashes from the API -->
   <% @Id = cand["candidateId"] %>
-
+<!-- For Bio -->
   <% @candidateBio = HTTParty.get "http://api.votesmart.org/CandidateBio.getBio?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}" %>
-  <% @candidateBioHash = @candidateBio.parsed_response["bio"]["candidate"] %>
+  <% @candidateBioHash = @candidateBio["bio"]["candidate"] %>
   <% @candidatePhoto = @candidateBioHash["photo"] %>
-
-  <!-- <#% @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}" %>
-  <#% @candidateVotesHash = @candidateVotes.parsed_response["bills"]["bill"] %> -->
-      
+<!-- For Votes in Other Offices -->
+  <% @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}" %>
+  <% @candidateVotesHash = @candidateVotes["bills"] %> 
+  <!-- <#%= @candidateVotesHash.fetch("generalInfo") %> -->
+  <!-- <#% @candidateVotesTitle = @candidateVotesHash[0]["title"] %> -->
+<!-- And Print -->
   <div class="container">
     <div class="row">
       <img class="col-md-2 img-responsive" src="<%= @candidatePhoto %>">
@@ -26,20 +28,20 @@
         <p> Currently serving: <%= cand["officeName"] %> <p>
       </div>
       <div class="col-md-7">
+        <%= @candidateVotesHash %>
       </div>
     </div>
   </div>
-    <!% b = 0 %>
-      <!#% while b < @candidateVotesHash.size %>
-        <!#% candVotes = @candidateVotesHash[b] %>
-        <!-- <#% candVotes = lambda { |b| @candidateVotesHash[b] } %> -->
-          <!#%= @candidateVotesHash[b]["title"] %>
-          <!#%= @candidateVotesHash[b]["vote"] %>
-          <!#% b += 1 %>
-      <!#% end %>
+      <!-- <#% while b < @candidateVotesHash.size %>
+        <#% candVotes = @candidateVotesHash[0] %>
+        <#% candVotes = lambda { |b| @candidateVotesHash[b] } %>
+          <#%= candVotes["title"] %>
+          <#%= candVotes["vote"] %>
+          <#% b += 1 %>
+      <#% end %> -->
 
-      <!-- <#% @candidateVotesHash.each do |p| %> -->
-        <!-- <#%= @candidateVotesHash["title"] %> -->
-      <!-- <#% end %> -->
+      <!-- <#% @candidateVotesHash.each do |p| %>
+        <#%= p[0]["title"] %>
+      <#% end %> -->
     <% i += 1 %>
 <% end %>
