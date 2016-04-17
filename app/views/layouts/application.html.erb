@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Platform</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <header>
     <h1>Platform</h1>
+    <h2>Where do they stand?</h2>
   </header>
   <nav>
-    <ul>
-      <li>
-        <a href="#">Home<a>
-      </li>
-      <li>
-        <a href="#">Register</a>
-      </li>
-    </ul>  
+    <a href="#">Home<a>
+    <a href="#">Register</a>
   </nav>
 <%= yield %>
 
 </body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </html>

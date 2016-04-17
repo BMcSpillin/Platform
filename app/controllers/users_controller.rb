@@ -30,9 +30,13 @@ class UsersController < ApplicationController
     ### above API call isn't working.  Maybe this doesn't respond to a direct call, as feared? ###
     @candidateHash = @candidate.parsed_response["candidateList"]["candidate"]
 
-    # Call and parse API to get candidate BIO
+    # def vote_parser
+    #   b = 0
+    #   return b
+    #   b += 1
+    # end
     
-    # example = Candidate.find(@zip5)
+
   end
 
   def user_params

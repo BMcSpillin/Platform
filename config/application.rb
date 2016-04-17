@@ -23,6 +23,9 @@ module Platform
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # Pipeline continuously updates
+    config.assets.initialize_on_precompile = true
+
     # config.autoload_paths << "#{Rails.root}/lib"
   end
 end
