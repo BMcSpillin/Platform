@@ -27,8 +27,7 @@ class UsersController < ApplicationController
 
     # Call and parse API to get STATS about candidate
     @candidate = HTTParty.get "http://api.votesmart.org/Candidates.getByZip?key=#{ENV['VOTESMART_API_KEY']}&zip5=#{@zip5}"
-    ### above API call isn't working.  Maybe this doesn't respond to a direct call, as feared? ###
-    @candidateHash = @candidate.parsed_response["candidateList"]["candidate"]
+    @candidateHash = @candidate["candidateList"]["candidate"]
 
     # def vote_parser
     #   b = 0
