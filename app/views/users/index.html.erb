@@ -8,6 +8,14 @@
   <% end %>
 </div>
 
+<div class="form-group">
+  <%= form_for @address, :url => :location, method: :post do |f| %>
+    <%= f.label :userAddress, 'Please enter your US street address with either zip code or city & state' %>
+    <%= f.text_field :userAddress, {:class => "form-control"} %>
+    <%= f.submit "find me", {:class => "btn btn-default"} %>
+  <% end %>
+</div>
+
 <!-- <#%= form_tag(action: "create", method: "post") do %>
   <#%= hidden_field_tag(:id) %>
   <#%= label_tag(:zip, "your zip code") %>

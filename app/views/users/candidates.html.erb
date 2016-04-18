@@ -9,7 +9,9 @@
   <% @candidatePhoto = @candidateBioHash["photo"] %>
 <!-- For Votes in Other Offices -->
   <% @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}" %>
-  <% @candidateVotesHash = @candidateVotes["bills"] %> 
+  <% @candidateVotesHash = @candidateVotes["bills"] %>
+
+  <!-- ^^with "bill", returns array in Ruby console.  Without, prints hash to page -->
   <!-- <#%= @candidateVotesHash.fetch("generalInfo") %> -->
   <!-- <#% @candidateVotesTitle = @candidateVotesHash[0]["title"] %> -->
 <!-- And Print -->
@@ -28,17 +30,20 @@
         <p> Currently serving: <%= cand["officeName"] %> <p>
       </div>
       <div class="col-md-7">
-        <%= @candidateVotesHash %>
+        <!-- <#% b = 0 %>
+        <#% while b < @candidateVotesHash.size %> -->
+          <%= @candidateVotesHash %>
+        <!--   <#% b += 1 %>
+        <#% end %> -->
       </div>
     </div>
   </div>
-      <!-- <#% while b < @candidateVotesHash.size %>
+      <!-- 
         <#% candVotes = @candidateVotesHash[0] %>
         <#% candVotes = lambda { |b| @candidateVotesHash[b] } %>
           <#%= candVotes["title"] %>
-          <#%= candVotes["vote"] %>
-          <#% b += 1 %>
-      <#% end %> -->
+          <#%= candVotes["vote"] %>          
+       -->
 
       <!-- <#% @candidateVotesHash.each do |p| %>
         <#%= p[0]["title"] %>
