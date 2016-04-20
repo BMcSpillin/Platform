@@ -1,43 +1,52 @@
-<% i = 0 %>
-<% while i < @candidateHash.size %>
-  <% cand = @candidateHash[i] %>
-<!-- Set candidate ID to call other relevant hashes from the API -->
-  <% @Id = cand["candidateId"] %>
-<!-- For Bio -->
-  <% @candidateBio = HTTParty.get "http://api.votesmart.org/CandidateBio.getBio?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}" %>
-  <% @candidateBioHash = @candidateBio["bio"]["candidate"] %>
-  <% @candidatePhoto = @candidateBioHash["photo"] %>
-<!-- For Votes in Other Offices -->
-  <% @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}" %>
-  <% @candidateVotesHash = @candidateVotes["bills"] %>
 
-  <!-- ^^with "bill", returns array in Ruby console.  Without, prints hash to page -->
-  <!-- <#%= @candidateVotesHash.fetch("generalInfo") %> -->
-  <!-- <#% @candidateVotesTitle = @candidateVotesHash[0]["title"] %> -->
-<!-- And Print -->
-  <div class="container">
-    <div class="row">
-      <img class="col-md-2 img-responsive" src="<%= @candidatePhoto %>">
-      <div class="col-md-3">
-        <% if cand["ballotName"] != nil %>
-          <p> Name: <%= cand["ballotName"] %> </p>
-        <% else %>
-          <p> Name: <%= cand["firstName"] + " " + cand["lastName"] %> </p>
-        <% end %>
-        <p> Party: <%= cand["electionParties"] %> </p>
-        <p> On the ballot in election district <%= cand["electionDistrictName"] %> </p> 
-        <p> Running for: <%= cand["electionOffice"] %> <p> 
-        <p> Currently serving: <%= cand["officeName"] %> <p>
-      </div>
-      <div class="col-md-7">
-        <!-- <#% b = 0 %>
-        <#% while b < @candidateVotesHash.size %> -->
-          <%= @candidateVotesHash %>
-        <!--   <#% b += 1 %>
+<script>
+$(function(){
+$('#this-carousel-id').carousel();
+});
+</script>
+
+  <!-- <div id="candidateCarousel" class="carousel slide" data-ride="carousel"> -->
+    <!-- <div class="carousel-inner"> -->
+      <!-- And Print -->
+        <!-- <#% slide = i %>
+        <#% if slide == 0 %>
+          <div class="item active">
+        <#% else %>
+          <div class="item" %>
         <#% end %> -->
+<!-- <#% @i = 0 %> -->
+    <!-- <#% while @i < @candHash.size %> -->
+<div class="container">    
+  <!-- <#% @candidateBioHash.each do |p| %>
+  <#% end %> -->
+  <% @candArray.each do |c| %>
+    <div class="row">
+      <img class="col-md-2 img-responsive" src="<%= c['photo'] %>">
+      <div class="col-md-10">
+        <% if c["ballotName"] != nil %>
+          <p> Name: <%= c["ballotName"] %> </p>
+        <% else %>
+          <p> Name: <%= c["firstName"] + " " + c["lastName"] %> </p>
+        <% end %>
+        <p> Party: <%= c["electionParties"] %> </p>
+        <p> On the ballot in election district <%= c["electionDistrictName"] %> </p> 
+        <p> Running for: <%= c["electionOffice"] %> <p> 
+        <p> Currently serving: <%= c["officeName"] %> <p>
       </div>
     </div>
-  </div>
+  <% end %>
+</div>
+        <!-- <a class="carousel-control left" href="#candidateCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#candidateCarousel" data-slide="next">&rsaquo;</a> -->
+  <!-- <#% @i += 1 %> -->
+<!-- </div> -->
+      <!-- <div> -->
+        <!-- <#% b = 0 %>
+        <#% while b < @candidateVotesHash.size %> -->
+          <#%= @candidateVotesHash %>
+        <!--   <#% b += 1 %>
+        <#% end %> -->
+      <!-- </div> -->
       <!-- 
         <#% candVotes = @candidateVotesHash[0] %>
         <#% candVotes = lambda { |b| @candidateVotesHash[b] } %>
@@ -48,5 +57,3 @@
       <!-- <#% @candidateVotesHash.each do |p| %>
         <#%= p[0]["title"] %>
       <#% end %> -->
-    <% i += 1 %>
-<% end %>

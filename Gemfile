@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'curl'
 gem 'httparty'
+gem 'smartystreets', '~> 0.1.20141107.14.41.49'
 # gem 'libcurl'
 # works with Vote Smart API
 # gem 'votesmart', '~> 0.4.1'
