@@ -1,16 +1,16 @@
-<div class="form-group">
-  <%= form_for @user, :url => :location, method: :post do |f| %>
-    <%= f.label :zip5, 'your zip code' %>
-    <%= f.text_field :zip5, {:class => "form-control"} %>
-    <%= f.label :zip4, 'the rest of your zip code' %>
-    <%= f.text_field :zip4, {:class => "form-control"} %>
-    <%= f.submit "find me", {:class => "btn btn-default"} %>
-  <% end %>
-</div>
+<!-- <div class="form-group">
+  <#%= form_for @user, :url => :location, method: :post do |f| %>
+    <#%= f.label :zip5, 'your zip code' %>
+    <#%= f.text_field :zip5, {:class => "form-control"} %>
+    <#%= f.label :zip4, 'the rest of your zip code' %>
+    <#%= f.text_field :zip4, {:class => "form-control"} %>
+    <#%= f.submit "find me", {:class => "btn btn-default"} %>
+  <#% end %>
+</div> -->
 
 <div class="form-group">
   <%= form_for @address, :url => :location, method: :post do |f| %>
-    <%= f.label :userAddress, 'Please enter your US street address with either zip code or city & state' %>
+    <%= f.label :userAddress, 'please enter your US street address, and either your zip code or city & state.' %>
     <%= f.text_field :userAddress, {:class => "form-control"} %>
     <%= f.submit "find me", {:class => "btn btn-default"} %>
   <% end %>
