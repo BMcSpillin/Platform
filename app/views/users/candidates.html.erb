@@ -7,18 +7,13 @@ $('#this-carousel-id').carousel();
 
   <!-- <div id="candidateCarousel" class="carousel slide" data-ride="carousel"> -->
     <!-- <div class="carousel-inner"> -->
-      <!-- And Print -->
         <!-- <#% slide = i %>
         <#% if slide == 0 %>
           <div class="item active">
         <#% else %>
           <div class="item" %>
         <#% end %> -->
-<!-- <#% @i = 0 %> -->
-    <!-- <#% while @i < @candHash.size %> -->
 <div class="container">    
-  <!-- <#% @candidateBioHash.each do |p| %>
-  <#% end %> -->
   <% @candArray.each do |c| %>
     <div class="row">
       <img class="col-md-2 img-responsive" src="<%= c['photo'] %>">
@@ -34,19 +29,22 @@ $('#this-carousel-id').carousel();
         <p> Currently serving: <%= c["officeName"] %> <p>
       </div>
     </div>
+    <div>
+      <% if c["votes"] == nil %>
+        <p><%= c["votes"] %></p>
+      <% else %>
+        <% c["votes"]["bill"].each do |print| %>
+          <!-- <p><#%= c["votes"]["bill"][0]["title"] %></p> -->
+          <p>Bill Title: <%= print["title"] %> Candidate Voted: <%= print["vote"] %></p><br/>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
+
         <!-- <a class="carousel-control left" href="#candidateCarousel" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="#candidateCarousel" data-slide="next">&rsaquo;</a> -->
-  <!-- <#% @i += 1 %> -->
-<!-- </div> -->
-      <!-- <div> -->
-        <!-- <#% b = 0 %>
-        <#% while b < @candidateVotesHash.size %> -->
-          <#%= @candidateVotesHash %>
-        <!--   <#% b += 1 %>
-        <#% end %> -->
-      <!-- </div> -->
+
       <!-- 
         <#% candVotes = @candidateVotesHash[0] %>
         <#% candVotes = lambda { |b| @candidateVotesHash[b] } %>

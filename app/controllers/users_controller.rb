@@ -54,9 +54,16 @@ class UsersController < ApplicationController
       @candArray[@i]["photo"] = @candBioHash["photo"]
   # <!-- For Votes -->    
       @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
-      @candVotesHash = @candidateVotes["bills"]
-      @candArray[@i]["votes"] = @candVotesHash............
-
+      if @candidateVotes != nil
+        @candVotesHash = @candidateVotes["bills"]
+        @candArray[@i]["votes"] = @candVotesHash
+      else
+        @candArray[@i]["votes"] = {}
+      end
+# @candVotesHash = hash
+# key: "bill", value is an array
+# array contains a hash
+# within that hash are "title" and "vote" keys
       @i += 1
     end
 
