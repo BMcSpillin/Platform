@@ -66,11 +66,11 @@ class UsersController < ApplicationController
     while @i < @candArray.size
       # Set candidate ID to call other relevant hashes from the API
       @Id = @candArray[@i]["candidateId"]
-  # <!-- For Bio -->
+  # <!-- Call Votesmart API for Bio -->
       @candBio = HTTParty.get "http://api.votesmart.org/CandidateBio.getBio?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
       @candBioHash = @candBio["bio"]["candidate"]
       @candArray[@i]["photo"] = @candBioHash["photo"]
-  # <!-- For Votes in prior offices -->
+  # <!-- Cal Votesmart API for Votes in prior offices -->
       #   @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
       # if @candidateVotes != nil
       #   @candVotesHash = @candidateVotes["bills"]
