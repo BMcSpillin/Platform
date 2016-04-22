@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   post '/location' => 'users#create', as: :location
 
-  get '/userZip' => 'users#zip', as: :zip
+  get '/zip' => 'users#zip', as: :zip
 
   get '/candidates' => 'users#candidates', as: :candidates
   # You can have the root of your site routed with "root"

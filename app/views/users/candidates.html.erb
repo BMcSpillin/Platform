@@ -13,6 +13,7 @@ $('#this-carousel-id').carousel();
         <#% else %>
           <div class="item" %>
         <#% end %> -->
+
 <div class="container">    
   <% @candArray.each do |c| %>
     <div class="row">
@@ -35,7 +36,7 @@ $('#this-carousel-id').carousel();
       <% else %>
         <% c["votes"]["bill"].each do |print| %>
           <!-- <p><#%= c["votes"]["bill"][0]["title"] %></p> -->
-          <p>Bill Title: <%= print["title"] %> Candidate Voted: <%= print["vote"] %></p><br/>
+          <p>Bill Title: <%= print["title"] %> Candidate Voted: <%= print["vote"] %></p>
         <% end %>
       <% end %>
     </div>
