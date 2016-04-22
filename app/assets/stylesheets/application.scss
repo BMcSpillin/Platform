@@ -20,27 +20,33 @@
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;*/
 
-/*Customized Scaffolding*/
+/*Color scheme*/
+$reddish: #DD7373;
+$bright-white: #FEFFFE;
+$light-blue: #AEECEF;
+$blue: #388697;
+$gray: #D8E2DC;
 
+/*Customized Scaffolding*/
 $text-color: #388697;
 $body-bg: #D8E2DC;
 $link-color: #DD7373;
 $link-hover-decoration: none;
 
-  /*Buttons*/
-  $btn-default-color: #DD7373;
-  /*@btn-primary-bg: #AEECEF;
-  @btn-default-border: #FEFFFE;
-  /*@btn-success-color
-  @btn-success-bg
-  @btn-success-border*/
+
+/*Buttons*/
+$btn-default-color: #DD7373;
+/*@btn-primary-bg: #AEECEF;
+@btn-default-border: #FEFFFE;
+/*@btn-success-color
+@btn-success-bg
+@btn-success-border*/
 
 /*Forms*/
 .form-group {
   width: 40%;
   margin: 0 auto;
 }
-
 $input-bg: #FEFFFE;
 $input-border-focus: #DD7373;
 

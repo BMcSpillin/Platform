@@ -71,13 +71,13 @@ class UsersController < ApplicationController
       @candBioHash = @candBio["bio"]["candidate"]
       @candArray[@i]["photo"] = @candBioHash["photo"]
   # <!-- For Votes in prior offices -->
-        @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
-      if @candidateVotes != nil
-        @candVotesHash = @candidateVotes["bills"]
-        @candArray[@i]["votes"] = @candVotesHash
-      else
-        @candArray[@i]["votes"] = {}
-      end
+      #   @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
+      # if @candidateVotes != nil
+      #   @candVotesHash = @candidateVotes["bills"]
+      #   @candArray[@i]["votes"] = @candVotesHash
+      # else
+      #   @candArray[@i]["votes"] = {}
+      # end
 
       @i += 1
     end
