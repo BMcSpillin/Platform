@@ -1,58 +1,48 @@
 
 <script>
 $(function(){
-$('#this-carousel-id').carousel();
+$('#candidateCarousel').carousel();
 });
 </script>
 
-  <!-- <div id="candidateCarousel" class="carousel slide" data-ride="carousel"> -->
-    <!-- <div class="carousel-inner"> -->
         <!-- <#% slide = i %>
         <#% if slide == 0 %>
           <div class="item active">
-        <#% else %>
-          <div class="item" %>
         <#% end %> -->
 
-<div class="container">    
+<div id="candidateCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+  
   <% @candArray.each do |c| %>
-    <div class="row">
-      <img class="col-md-2 img-responsive" src="<%= c['photo'] %>">
-      <div class="col-md-10">
-        <% if c["ballotName"] != nil %>
-          <p> Name: <%= c["ballotName"] %> </p>
-        <% else %>
-          <p> Name: <%= c["firstName"] + " " + c["lastName"] %> </p>
-        <% end %>
-        <p> Party: <%= c["electionParties"] %> </p>
-        <p> On the ballot in election district <%= c["electionDistrictName"] %> </p> 
-        <p> Running for: <%= c["electionOffice"] %> <p> 
-        <p> Currently serving: <%= c["officeName"] %> <p>
+    <div class="container">
+      <div class="row item <%= 'active' if @i == 0 %>" data-slide-number="<%= @i %>">
+        <img class="col-md-2 img-responsive" src="<%= c['photo'] %>">
+        <div class="col-md-10">
+          <% if c["ballotName"] != nil %>
+            <p> Name: <%= c["ballotName"] %> </p>
+          <% else %>
+            <p> Name: <%= c["firstName"] + " " + c["lastName"] %> </p>
+          <% end %>
+          <p> Party: <%= c["electionParties"] %> </p>
+          <p> On the ballot in election district <%= c["electionDistrictName"] %> </p> 
+          <p> Running for: <%= c["electionOffice"] %> <p> 
+          <p> Currently serving: <%= c["officeName"] %> <p>
+        </div>
+        <a class="carousel-control left" href="#candidateCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#candidateCarousel" data-slide="next">&rsaquo;</a>
       </div>
-    </div>
-    <div>
-      <% if c["votes"] == nil %>
-        <p><%= c["votes"] %></p>
-      <% else %>
-        <% c["votes"]["bill"].each do |print| %>
-          <!-- <p><#%= c["votes"]["bill"][0]["title"] %></p> -->
-          <p>Bill Title: <%= print["title"] %> Candidate Voted: <%= print["vote"] %></p>
-        <% end %>
-      <% end %>
+      <!-- <div>
+        <#% if c["votes"] == nil %>
+          <p><#%= c["votes"] %></p>
+        <#% else %>
+          <#% c["votes"]["bill"].each do |print| %>
+            <p><#%= c["votes"]["bill"][0]["title"] %></p>
+            <p>Bill Title: <#%= print["title"] %> Candidate Voted: <#%= print["vote"] %></p>
+          <#% end %>
+        <#% end %>
+      </div> -->
     </div>
   <% end %>
+
+  </div>
 </div>
-
-        <!-- <a class="carousel-control left" href="#candidateCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#candidateCarousel" data-slide="next">&rsaquo;</a> -->
-
-      <!-- 
-        <#% candVotes = @candidateVotesHash[0] %>
-        <#% candVotes = lambda { |b| @candidateVotesHash[b] } %>
-          <#%= candVotes["title"] %>
-          <#%= candVotes["vote"] %>          
-       -->
-
-      <!-- <#% @candidateVotesHash.each do |p| %>
-        <#%= p[0]["title"] %>
-      <#% end %> -->
