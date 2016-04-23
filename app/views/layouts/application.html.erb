@@ -12,9 +12,9 @@
     <h1>Platform</h1>
     <h2>Where do they stand?</h2>
   </header>
-  <nav>
-    <a href="#">Home<a>
-    <a href="#">Register</a>
+  <nav class="nav">
+    <%= link_to "Home", root_path %>
+    <%= link_to "Register to Vote", "https://vote.usa.gov/", target: "_blank" %>
   </nav>
 <%= yield %>
 

@@ -66,20 +66,45 @@ class UsersController < ApplicationController
     while @i < @candArray.size
       # Set candidate ID to call other relevant hashes from the API
       @Id = @candArray[@i]["candidateId"]
+
   # <!-- Call Votesmart API for Bio -->
-      @candBio = HTTParty.get "http://api.votesmart.org/CandidateBio.getBio?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
+      @candBio = HTTParty.get "http://api.votesmart.org/CandidateBio.getDetailedBio?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
+      
       @candBioHash = @candBio["bio"]["candidate"]
+      @candEducationHash = @candBioHash["education"]
+      @candExperienceHash = @candBioHash["political"]
+      
       @candArray[@i]["photo"] = @candBioHash["photo"]
+      # Education
+      if @candEducationHash != nil
+        @candArray[@i]["degree"] = @candEducationHash["degree"]
+        @candArray[@i]["school"] = @candEducationHash["school"]
+      else
+        @candArray[@i]["degree"] = "not available"
+        @candArray[@i]["school"] = "not available"
+      end
+      # Experience
+      if @candExperienceHash != nil
+        @candArray[@i]["experience"] = @candExperienceHash["experience"]
+      else
+        @candArray[@i]["experience"] = "none"
+      end
+      # @candArray[@i][""] = @candBioHash
+      # @candArray[@i][""] = @candBioHash
   # <!-- Cal Votesmart API for Votes in prior offices -->
-      #   @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
-      # if @candidateVotes != nil
-      #   @candVotesHash = @candidateVotes["bills"]
-      #   @candArray[@i]["votes"] = @candVotesHash
-      # else
-      #   @candArray[@i]["votes"] = {}
-      # end
+      @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
+      if @candidateVotes != nil
+        @candVotesHash = @candidateVotes["bills"]
+        @candArray[@i]["votes"] = @candVotesHash
+      else
+        @candArray[@i]["votes"] = {}
+      end
 
       @i += 1
+      
+      # if @candArray[@i]["candidateId"] == @candArray[@i - 1]["candidateId"]
+      #   @candArray.delete("#{@candArray[@i]}")
+      # end
     end
 
   end

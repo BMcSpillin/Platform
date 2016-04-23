@@ -20,6 +20,16 @@
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;*/
 
+@font-face {
+  font-family: americanCaptain;
+  src: font-url('AmericanCaptain.tff');
+}
+
+h1, h2 {
+  font-family: americanCaptain, Helvetica, Arial, sans-serif;
+  // padding-bottom: 10px;
+}
+
 /*Color scheme*/
 $reddish: #DD7373;
 $bright-white: #FEFFFE;
@@ -31,7 +41,22 @@ $gray: #D8E2DC;
 $text-color: #388697;
 $body-bg: #D8E2DC;
 $link-color: #DD7373;
-$link-hover-decoration: none;
+// $link-hover-decoration: none;
+
+/*Customized Carousel*/
+.carousel-control {
+
+}
+// Not working:
+.carousel-control.left {
+  // background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .5) 0%), color-stop(rgba(56, 134, 151, .0001) 100%));
+  // background-image:         linear-gradient(to right, rgba(56, 134, 151, .5) 0%, rgba(56, 134, 151, .0001) 100%);
+}
+.carousel-control.right {
+  // background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .0001) 0%), color-stop(rgba(56, 134, 151, .5) 100%));
+  // background-image:         linear-gradient(to right, rgba(56, 134, 151, .0001) 0%, rgba(56, 134, 151, .5) 100%);
+}
+
 
 
 /*Buttons*/
