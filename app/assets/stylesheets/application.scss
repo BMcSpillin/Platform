@@ -20,16 +20,6 @@
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;*/
 
-@font-face {
-  font-family: americanCaptain;
-  src: font-url('AmericanCaptain.tff');
-}
-
-h1, h2 {
-  font-family: americanCaptain, Helvetica, Arial, sans-serif;
-  // padding-bottom: 10px;
-}
-
 /*Color scheme*/
 $reddish: #DD7373;
 $bright-white: #FEFFFE;
@@ -37,26 +27,87 @@ $light-blue: #AEECEF;
 $blue: #388697;
 $gray: #D8E2DC;
 
+@font-face {
+  font-family: americanCaptain;
+  src: url(font-path('/assets/AmericanCaptain.tff'));
+}
+
+header {
+  width: 100%;
+  background-color: #D8E2DC;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+img.stage {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Set up fadedness */
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.podium {
+  width: 300px;
+  // display: inline-block;
+  margin: 20px auto;
+}
+
+.stage {
+  width: 100%;
+}
+
+h1, h2 {
+  font-family: americanCaptain, Helvetica, Arial, sans-serif;
+  // padding-bottom: 10px;
+}
+
+article {
+  font-size: 1.4em;
+  // line-height: 39.96px;
+  vertical-align: center;
+}
+
+
 /*Customized Scaffolding*/
 $text-color: #388697;
 $body-bg: #D8E2DC;
 $link-color: #DD7373;
-// $link-hover-decoration: none;
+$link-hover-decoration: none;
 
 /*Customized Carousel*/
 .carousel-control {
-
+  height: 239.76px;
 }
 // Not working:
 .carousel-control.left {
-  // background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .5) 0%), color-stop(rgba(56, 134, 151, .0001) 100%));
-  // background-image:         linear-gradient(to right, rgba(56, 134, 151, .5) 0%, rgba(56, 134, 151, .0001) 100%);
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .5) 0%), color-stop(rgba(56, 134, 151, .0001) 100%));
+  background-image:         linear-gradient(to right, rgba(56, 134, 151, .5) 0%, rgba(56, 134, 151, .0001) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+  background-repeat: repeat-x;
+  line-height: 239.76px;
+  vertical-align: center;
 }
 .carousel-control.right {
-  // background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .0001) 0%), color-stop(rgba(56, 134, 151, .5) 100%));
-  // background-image:         linear-gradient(to right, rgba(56, 134, 151, .0001) 0%, rgba(56, 134, 151, .5) 100%);
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .0001) 0%), color-stop(rgba(56, 134, 151, .5) 100%));
+  background-image:         linear-gradient(to right, rgba(56, 134, 151, .0001) 0%, rgba(56, 134, 151, .5) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+  background-repeat: repeat-x;
+  line-height: 239.76px;
+  vertical-align: center;
 }
-
 
 
 /*Buttons*/
@@ -70,8 +121,13 @@ $btn-default-color: #DD7373;
 /*Forms*/
 .form-group {
   width: 40%;
-  margin: 0 auto;
+  margin: 160px auto;
 }
+
+.form-control {
+  color: #388697;
+}
+
 $input-bg: #FEFFFE;
 $input-border-focus: #DD7373;
 

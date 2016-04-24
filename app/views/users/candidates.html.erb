@@ -8,15 +8,19 @@
 <div id="candidateCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
   <div class="carousel-inner">
     <div class="item active">
-      <div>
-        <p> Invest in your vote.  Make it count. </p>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <article class="col-md-8">
+          <p> “If you are bored and disgusted by politics and don't bother to vote, you are in effect voting for the entrenched Establishments of the two major parties, who please rest assured are not dumb, and who are keenly aware that it is in their interests to keep you disgusted and bored and cynical and to give you every possible reason to stay at home doing one-hitters and watching MTV on primary day. By all means stay home if you want, but don't bullshit yourself that you're not voting. In reality, there is no such thing as not voting: you either vote by voting, or you vote by staying home and tacitly doubling the value of some Diehard's vote.” </p>
+          <p> ― David Foster Wallace, "Up, Simba!"</p>
+        </article>
+        <div class="col-md-2"></div>
       </div>
     </div>
   <% @candArray.each do |c| %>
       <div class="item">
         <div class="row">
-          <div class="col-md-2"><a class="carousel-control left" href="#candidateCarousel" role="button" data-slide="prev">&lsaquo;</a></div>
-
+          <div class="col-md-2"></div>
           <!-- Photo -->
           <img class="col-md-2 img-responsive" src="<%= c['photo'] %>">
           <div class="col-md-6">
@@ -67,11 +71,14 @@
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8">
+          <!-- Voting Record -->
             <% if c["votes"] == nil %>
               <p><%= c["votes"] %></p>
             <% else %>
               <% c["votes"]["bill"].each do |b| %>
-                <p>Bill Title: <%= b["title"] %> Candidate Voted: <%= b["vote"] %></p>
+                  <p>
+                    Bill Title: <%= b["title"] %> Candidate Voted: <%= b["vote"] %>
+                  </p>
               <% end %>
             <% end %>
           </div>
