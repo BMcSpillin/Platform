@@ -9,13 +9,15 @@
 </head>
 <body>
   <header>
-    <h1>Platform</h1>
-    <h2>Where do they stand?</h2>
+    <h1>Platform <small>Where do they stand?</small></h1>
+    <nav>
+      <ul class="nav nav-tabs">
+        <li role="presentation"><%= link_to "Home", root_path %>
+        <li role="presentation"><%= link_to "My Candidates", candidates_path %>
+        <li role="presentation"><%= link_to "Register to Vote", "https://vote.usa.gov/", target: "_blank" %>
+      </ul>
+    </nav>
   </header>
-  <nav class="nav">
-    <%= link_to "Home", root_path %>
-    <%= link_to "Register to Vote", "https://vote.usa.gov/", target: "_blank" %>
-  </nav>
 <%= yield %>
 
 </body>
