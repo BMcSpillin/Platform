@@ -10,7 +10,7 @@
     <div class="item active">
       <div class="row">
         <div class="col-md-2"></div>
-        <article class="col-md-8">
+        <article class="col-md-8 stats">
           <p> “If you are bored and disgusted by politics and don't bother to vote, you are in effect voting for the entrenched Establishments of the two major parties, who please rest assured are not dumb, and who are keenly aware that it is in their interests to keep you disgusted and bored and cynical and to give you every possible reason to stay at home doing one-hitters and watching MTV on primary day. By all means stay home if you want, but don't bullshit yourself that you're not voting. In reality, there is no such thing as not voting: you either vote by voting, or you vote by staying home and tacitly doubling the value of some Diehard's vote.” </p>
           <p> ― David Foster Wallace, "Up, Simba!"</p>
         </article>
@@ -22,8 +22,8 @@
         <div class="row">
           <div class="col-md-2"></div>
           <!-- Photo -->
-          <img class="col-md-2 img-responsive" src="<%= c['photo'] %>">
-          <div class="col-md-6">
+          <img class="col-md-2 img-responsive candPhoto" src="<%= c['photo'] %>">
+          <section class="col-md-6 stats">
             <!-- Name -->
             <% if c["ballotName"] != nil %>
               <p> Name: <%= c["ballotName"] %> </p>
@@ -65,7 +65,7 @@
               <% end %>
               </ul>
             <p>
-          </div>
+          </section>
           <div class="col-md-2"></div>
         </div>
         <div class="row">

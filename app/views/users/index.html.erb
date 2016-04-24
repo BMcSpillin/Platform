@@ -2,11 +2,9 @@
 <%= image_tag("emptyStage.png", class: "stage") %>
 
 <!-- Form adds address to database so SmartyStreets can infer 9-digit zip code -->
-<div class="form-group">
+<section class="form-group">
   <%= form_for :user, url: location_path do |f| %>
-    <%= f.label :address, 'Please enter the address where you are registered to vote.' %>
-    <p><%= f.text_field :address, {:placeholder => "Include Your Zip Code or City & State", :class => "form-control"} %>
-    <%= f.submit "who's on my ballot?", {:class => "btn btn-default"} %></p>
+    <%= f.text_field :address, {:placeholder => "Please enter the street address where you are registered to vote.", :class => "form-control left"} %>
+    <%= f.submit "Who's On My Ballot?", {:class => "btn btn-default right"} %>
   <% end %>
-</div>
-<!-- # <#%= image_tag("podiumTransparent.png", class: "podium") %> -->
+</section>
