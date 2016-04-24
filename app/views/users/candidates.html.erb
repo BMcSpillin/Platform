@@ -1,11 +1,10 @@
-
  <script>
 //   $(function(){
 //     $('#candidateCarousel').carousel();
 //   });
 </script>
 
-<div id="candidateCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+<main id="candidateCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
   <div class="carousel-inner">
     <div class="item active">
       <div class="row">
@@ -24,14 +23,16 @@
           <!-- Photo -->
           <img class="col-md-2 img-responsive candPhoto" src="<%= c['photo'] %>">
           <section class="col-md-6 stats">
-            <!-- Name -->
+            <!-- Name & Political Party-->
             <% if c["ballotName"] != nil %>
-              <p> Name: <%= c["ballotName"] %> </p>
+              <h3><%= c["ballotName"] %> <small><%= c["electionParties"] %></small></h3>
             <% else %>
-              <p> Name: <%= c["firstName"] + " " + c["lastName"] %> </p>
-            <% end %>
-            <!-- Education -->
-            <p>Education:</p>
+              <h3><%= c["firstName"] + " " + c["lastName"] %> <small><%= c["electionParties"] %></small></h3>
+            <% end %>          
+        <!-- Candidacy -->
+            <h4>Running for <small><%= c["electionOffice"] %></small></h4> 
+        <!-- Education -->
+            <h4>Education</h4>
               <ul>
                 <% if c["education"].class == Array %>
                   <% c["education"].each do |ed| %>
@@ -43,14 +44,12 @@
                   <%= c["education"] %>
                 <% end %>
               </ul>
-        <!-- Political Party -->
-            <p> Party: <%= c["electionParties"] %> </p>
-        <!-- Candidacy -->
-            <p> Running for: <%= c["electionOffice"] %>, District: <%= c["electionDistrictName"] %> <p> 
         <!-- Experience -->
-            <p> Currently serving: <%= c["officeName"] %> <p>
-            <p> Past positions: </p>
-              <ul>
+            <% if c["officeName"] != nil %>
+              <h4>Currently serving <small><%= c["officeName"] %></small></h4>
+            <% end %>
+            <h4>Past positions</h4>
+              <ul class="positions">
                 <% if c["experience"].class == Array %>
                   <% c["experience"].each do |ex| %>
                     <li><%= ex["fullText"] %></li>
@@ -72,9 +71,9 @@
               <p><%= c["votes"] %></p>
             <% else %>
               <% c["votes"]["bill"].each do |b| %>
-                  <p>
-                    Bill Title: <%= b["title"] %> Candidate Voted: <%= b["vote"] %>
-                  </p>
+                  <h4>
+                    Bill Title <small><%= b["title"] %></small> Candidate Voted <small><%= b["vote"] %></small>
+                  </h4>
               <% end %>
             <% end %>
           </div>
@@ -86,4 +85,4 @@
     <!-- Carousel controls -->
     <a class="carousel-control left" href="#candidateCarousel" role="button" data-slide="prev">&lsaquo;</a>
     <a class="carousel-control right" href="#candidateCarousel" role="button" data-slide="next">&rsaquo;</a>
-  </div>
+</main>

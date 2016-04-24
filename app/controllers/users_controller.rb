@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user.address = params[:user][:address]
     @user.save!
     
-    if @user.save 
+    if @user.save
       redirect_to zip_path
     else
       redirect_to root_path
@@ -72,6 +72,7 @@ class UsersController < ApplicationController
       
       @candBioHash = @candBio["bio"]["candidate"]
       @candEducationHash = @candBioHash["education"]
+      @candProfessionHash = @candBioHash["profession"]
       @candExperienceHash = @candBioHash["political"]
 
   # Photo or Placeholder
@@ -87,7 +88,13 @@ class UsersController < ApplicationController
       else
         @candArray[@i]["education"] = "none available"
       end
-  # Experience
+  # Profession
+      if @candBioHash["profession"] != nil
+        @candArray[@i]["profession"] = @candProfessionHash["experience"]
+      else
+        @candArray[@i]["profession"] = "none available"
+      end
+  # Political Experience
       if @candExperienceHash != nil
         @candArray[@i]["experience"] = @candExperienceHash["experience"]
       else
