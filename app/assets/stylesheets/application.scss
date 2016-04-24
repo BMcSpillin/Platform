@@ -15,10 +15,6 @@
 
 /**= require_self
 *= require_tree .*/
-  
-/*$navbar-default-bg: #312312;
-$light-orange: #ff8c00;
-$navbar-default-color: $light-orange;*/
 
 /*Color scheme*/
 $reddish: #DD7373;
@@ -34,15 +30,20 @@ $gray: #D8E2DC;
 }
 
 header {
-  font-family: 'Gruppo', Helvetica, sans-serif;
   font-weight: bold;
   width: 100%;
+  height: 110px;
   background-color: #D8E2DC;
   position: absolute;
   top: 0;
   left: 0;
 }
-
+h1 small {
+  border-top: 1px solid $reddish;
+}
+small {
+  white-space: nowrap;
+}
 img.stage {
   /* Set rules to fill background */
   min-height: 100%;
@@ -63,9 +64,6 @@ img.stage {
 }
 .stage {
   width: 100%;
-}
-small {
-  border-top: 1px solid $reddish;
 }
 /*Customized Scaffolding*/
 $text-color: #388697;
@@ -90,7 +88,7 @@ ul li {
 
 /*Forms*/
 .form-group {
-  width: 50%;
+  width: 55%;
   margin: 160px auto;
   font-family: 'Gruppo', Helvetica, sans-serif;
   font-weight: bold;
@@ -115,35 +113,57 @@ $btn-default-color: #DD7373;
   border-top: 4px double $blue;
 }
 article {
-  font-size: 1.4em;
+  font-size: 1.3em;
   // line-height: 39.96px;
   vertical-align: center;
+  color: $darkblue;
+}
+
+
+/* Cleanliness is next to Godliness: Bootstrap */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  width: 100%;
+  font-family: 'Gruppo', Helvetica, sans-serif;
+  background-color: $bright-white;
+}
+
+h1 {
+  padding-left: 10px;
+  line-height: 110px;
+  vertical-align: center;
+  width: 40%;
+  margin-bottom: -62px;
+}
+
+nav {
+  padding-top: 0;
 }
 .carousel-control {
-  height: 239.76px;
+  height: 212.72px;
 }
-// Not working:
+
 .carousel-control.left {
   background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .5) 0%), color-stop(rgba(56, 134, 151, .0001) 100%));
   background-image:         linear-gradient(to right, rgba(56, 134, 151, .5) 0%, rgba(56, 134, 151, .0001) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
   background-repeat: repeat-x;
-  line-height: 239.76px;
+  line-height: 212.72px;
   vertical-align: center;
+  font-size: 2em;
 }
 .carousel-control.right {
   background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .0001) 0%), color-stop(rgba(56, 134, 151, .5) 100%));
   background-image:         linear-gradient(to right, rgba(56, 134, 151, .0001) 0%, rgba(56, 134, 151, .5) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
   background-repeat: repeat-x;
-  line-height: 239.76px;
+  line-height: 212.72px;
   vertical-align: center;
+  font-size: 2em;
 }
 
-
-
-
-
-/* Cleanliness is next to Godliness: Bootstrap */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+.positions li {
+  display: inline-block
+}
