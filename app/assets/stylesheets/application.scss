@@ -25,6 +25,7 @@ $reddish: #DD7373;
 $bright-white: #FEFFFE;
 $light-blue: #AEECEF;
 $blue: #388697;
+$darkblue: #0f2b36;
 $gray: #D8E2DC;
 
 @font-face {
@@ -33,6 +34,8 @@ $gray: #D8E2DC;
 }
 
 header {
+  font-family: 'Gruppo', Helvetica, sans-serif;
+  font-weight: bold;
   width: 100%;
   background-color: #D8E2DC;
   position: absolute;
@@ -58,36 +61,60 @@ img.stage {
   z-index: -1;
   opacity: 0.3;
 }
-
-.podium {
-  width: 300px;
-  // display: inline-block;
-  margin: 20px auto;
-}
-
 .stage {
   width: 100%;
 }
-
-h1, h2 {
-  font-family: americanCaptain, Helvetica, Arial, sans-serif;
-  // padding-bottom: 10px;
+small {
+  border-top: 1px solid $reddish;
 }
-
-article {
-  font-size: 1.4em;
-  // line-height: 39.96px;
-  vertical-align: center;
-}
-
-
 /*Customized Scaffolding*/
 $text-color: #388697;
 $body-bg: #D8E2DC;
 $link-color: #DD7373;
 $link-hover-decoration: none;
 
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+.navbar-right {
+  padding-right: 20px;
+}
+
+/*Forms*/
+.form-group {
+  width: 50%;
+  margin: 160px auto;
+  font-family: 'Gruppo', Helvetica, sans-serif;
+  font-weight: bold;
+}
+input.form-control {
+  width: 75%;
+}
+$input-bg: #FEFFFE;
+$input-border-focus: #DD7373;
+
+/*Buttons*/
+$btn-default-color: #DD7373;
+.btn {
+  height: 33.99px;
+}
+
 /*Customized Carousel*/
+#candidateCarousel {
+  margin-top: 160px;
+}
+.stats {
+  border-top: 4px double $blue;
+}
+article {
+  font-size: 1.4em;
+  // line-height: 39.96px;
+  vertical-align: center;
+}
 .carousel-control {
   height: 239.76px;
 }
@@ -110,32 +137,9 @@ $link-hover-decoration: none;
 }
 
 
-/*Buttons*/
-$btn-default-color: #DD7373;
-/*@btn-primary-bg: #AEECEF;
-@btn-default-border: #FEFFFE;
-/*@btn-success-color
-@btn-success-bg
-@btn-success-border*/
 
-/*Forms*/
-.form-group {
-  width: 40%;
-  margin: 160px auto;
-}
 
-.form-control {
-  color: #388697;
-}
 
-$input-bg: #FEFFFE;
-$input-border-focus: #DD7373;
-
-/*Carousel*/
-// #candidateCarousel {
-//   width: 60%  
-// }
-
-/* Cleanliness is next to godliness: Bootstrap */
+/* Cleanliness is next to Godliness: Bootstrap */
 @import "bootstrap-sprockets";
 @import "bootstrap";

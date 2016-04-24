@@ -26,8 +26,6 @@ module Platform
     # Pipeline continuously updates
     config.assets.initialize_on_precompile = true
 
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-
     # config.autoload_paths << "#{Rails.root}/lib"
   end
 end
