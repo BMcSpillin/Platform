@@ -30,41 +30,37 @@
             <% else %>
               <p> Name: <%= c["firstName"] + " " + c["lastName"] %> </p>
             <% end %>
-
             <!-- Education -->
-              Education:
+            <p>Education:</p>
               <ul>
-                <!-- <#% if c["education"] == Array %> -->
-                  <li>
-                    <!-- <#% c["education"].each do |e| %> -->
-                    <!-- Degree in <#%= c["degree"] %> from <#%= c["school"] %> -->
-                    <!-- <#% end %> -->
-                  </li>
-                <!-- <#% end %> -->
-              </ul>
-
-            <!-- Political Party -->
-            <p> Party: <%= c["electionParties"] %> </p>
-
-            <!-- Candidacy -->
-            <p> Running for: <%= c["electionOffice"] %>, District: <%= c["electionDistrictName"] %> <p> 
-
-            <!-- Experience -->
-            <p> Currently serving: <%= c["officeName"] %> <p>
-            <p> 
-              Past positions:
-              <ul>
-              <% if c["experience"].class == Array %>
-                <% c["experience"].each do |e| %>
-                  <li><%= e["fullText"] %></li>
+                <% if c["education"].class == Array %>
+                  <% c["education"].each do |ed| %>
+                    <li><%= ed["fullText"] %></li>
+                  <% end %>
+                <% elsif c["education"].class == Hash %>
+                  <li><%= c["education"]["fullText"] %></li>
+                <% else %>
+                  <%= c["education"] %>
                 <% end %>
-              <% elsif c["experience"].class == Hash %>
-                <li><%= c["experience"]["fullText"] %></li>
-              <% else %>
-                <%= c["experience"] %>
-              <% end %>
               </ul>
-            <p>
+        <!-- Political Party -->
+            <p> Party: <%= c["electionParties"] %> </p>
+        <!-- Candidacy -->
+            <p> Running for: <%= c["electionOffice"] %>, District: <%= c["electionDistrictName"] %> <p> 
+        <!-- Experience -->
+            <p> Currently serving: <%= c["officeName"] %> <p>
+            <p> Past positions: </p>
+              <ul>
+                <% if c["experience"].class == Array %>
+                  <% c["experience"].each do |ex| %>
+                    <li><%= ex["fullText"] %></li>
+                  <% end %>
+                <% elsif c["experience"].class == Hash %>
+                  <li><%= c["experience"]["fullText"] %></li>
+                <% else %>
+                  <%= c["experience"] %>
+                <% end %>
+              </ul>
           </section>
           <div class="col-md-2"></div>
         </div>
