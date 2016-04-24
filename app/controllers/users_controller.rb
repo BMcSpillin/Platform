@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     @candArray = @candidates["candidateList"]["candidate"]
 
   # Run through candidate array indices
-      @i = 0
+    @i = 0
 
     while @i < @candArray.size
       # Set candidate ID to call other relevant hashes from the API
@@ -82,18 +82,16 @@ class UsersController < ApplicationController
       end
 
   # Education
-      if @candEducationHash != nil
-        @candArray[@i]["degree"] = @candEducationHash["degree"]
-        @candArray[@i]["school"] = @candEducationHash["school"]
+      if @candBioHash["education"] != nil
+        @candArray[@i]["education"] = @candEducationHash["institution"]
       else
-        @candArray[@i]["degree"] = "not available"
-        @candArray[@i]["school"] = "not available"
+        @candArray[@i]["education"] = "none available"
       end
   # Experience
       if @candExperienceHash != nil
         @candArray[@i]["experience"] = @candExperienceHash["experience"]
       else
-        @candArray[@i]["experience"] = "none"
+        @candArray[@i]["experience"] = "none available"
       end
       # @candArray[@i][""] = @candBioHash
       # @candArray[@i][""] = @candBioHash
