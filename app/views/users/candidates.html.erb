@@ -1,8 +1,3 @@
- <script>
-//   $(function(){
-//     $('#candidateCarousel').carousel();
-//   });
-</script>
 
 <main id="candidateCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
   <div class="carousel-inner">
@@ -11,7 +6,7 @@
         <div class="col-md-2"></div>
         <article class="col-md-8 stats">
           <p> “If you are bored and disgusted by politics and don't bother to vote, you are in effect voting for the entrenched Establishments of the two major parties, who please rest assured are not dumb, and who are keenly aware that it is in their interests to keep you disgusted and bored and cynical and to give you every possible reason to stay at home doing one-hitters and watching MTV on primary day. By all means stay home if you want, but don't bullshit yourself that you're not voting. In reality, there is no such thing as not voting: you either vote by voting, or you vote by staying home and tacitly doubling the value of some Diehard's vote.” </p>
-          <p> ― David Foster Wallace, "Up, Simba!"</p>
+          <p> ― David Foster Wallace, "Up, Simba!" (2000)</p>
         </article>
         <div class="col-md-2"></div>
       </div>
@@ -25,7 +20,7 @@
           <section class="col-md-6 stats">
             <!-- Name & Political Party-->
             <% if c["ballotName"] != nil %>
-              <h3><%= c["ballotName"] %> <small><%= c["electionParties"] %></small></h3>
+              <h2><%= c["ballotName"] %> <small><%= c["electionParties"] %></small></h2>
             <% else %>
               <h3><%= c["firstName"] + " " + c["lastName"] %> <small><%= c["electionParties"] %></small></h3>
             <% end %>          
@@ -46,10 +41,16 @@
               </ul>
         <!-- Experience -->
             <% if c["officeName"] != nil %>
-              <h4>Currently serving <small><%= c["officeName"] %></small></h4>
+              <h4>Currently serving as <small><%= c["officeName"] %></small></h4>
             <% end %>
-            <h4>Past positions</h4>
-              <ul class="positions">
+          </section>
+          <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+          <section class="col-md-12">
+            <aside class="positions">
+              <h4>Past Positions</h4>
+              <ul>
                 <% if c["experience"].class == Array %>
                   <% c["experience"].each do |ex| %>
                     <li><%= ex["fullText"] %></li>
@@ -60,25 +61,35 @@
                   <%= c["experience"] %>
                 <% end %>
               </ul>
+            </aside>
           </section>
-          <div class="col-md-2"></div>
         </div>
-        <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8">
-          <!-- Voting Record -->
-            <% if c["votes"] == nil %>
-              <p><%= c["votes"] %></p>
-            <% else %>
-              <% c["votes"]["bill"].each do |b| %>
-                  <h4>
-                    Bill Title <small><%= b["title"] %></small> Candidate Voted <small><%= b["vote"] %></small>
-                  </h4>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="col-md-2"></div>
-        </div>
+        <!-- Voting Record -->
+        <% if c["votes"] != nil %>
+          <div class="row">
+              <div class="col-md-1"></div>
+                <section class="col-md-6">
+                  <h3>Bill Title</h3>
+                </section>
+                <div class="col-md-1"></div>
+                <section class="col-md-3">
+                  <h3>Candidate Voted</h3>
+                </section>
+            </div>
+          <% c["votes"]["bill"].each do |b| %>
+            <div class="row">
+              <div class="col-md-1"></div>
+                <section class="col-md-6">
+                  <h4><%= b["title"] %></h4>
+                </section>
+                <div class="col-md-1"></div>
+                <section class="col-md-2">
+                  <h4><%= b["vote"] %></h4>
+                </section>
+              <div class="col-md-1"></div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
   <% end %>
   </div>
