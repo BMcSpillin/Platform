@@ -24,11 +24,6 @@ $blue: #388697;
 $darkblue: #0f2b36;
 $gray: #D8E2DC;
 
-@font-face {
-  font-family: americanCaptain;
-  src: url(font-path('/assets/AmericanCaptain.tff'));
-}
-
 header {
   font-weight: bold;
   width: 100%;
@@ -41,7 +36,7 @@ header {
 h1 small {
   border-top: 1px solid $reddish;
 }
-small {
+h2 small {
   white-space: nowrap;
 }
 img.stage {
@@ -92,6 +87,7 @@ ul li {
   margin: 160px auto;
   font-family: 'Gruppo', Helvetica, sans-serif;
   font-weight: bold;
+  z-index: 3;
 }
 input.form-control {
   width: 75%;
@@ -114,7 +110,6 @@ $btn-default-color: #DD7373;
 }
 article {
   font-size: 1.3em;
-  // line-height: 39.96px;
   vertical-align: center;
   color: $darkblue;
 }
@@ -164,6 +159,24 @@ nav {
   font-size: 2em;
 }
 
-.positions li {
-  display: inline-block
+.candPhoto {
+  height: 212.72px;
+}
+
+.positions {
+  background-color: $darkblue;
+  color: $bright-white;
+  text-align: right;
+  border-top: 4px double $bright-white;
+}
+
+.positions h4,
+.positions ul, {
+  margin-right: 16.66%;
+}
+
+.keepCarousel {
+  position: fixed;
+  top: 0;
+  left: 0;
 }

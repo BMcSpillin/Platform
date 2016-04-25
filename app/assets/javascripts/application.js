@@ -10,8 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// = require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
+= require_tree .
+
+var carousel = $('.carousel').offset().top;
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > carousel) {
+    $('.carousel').addClass('keepCarousel');
+} else {
+    $('.carousel').removeClass('keepCarousel');
+}
+});
