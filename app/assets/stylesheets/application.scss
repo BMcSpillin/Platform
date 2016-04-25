@@ -33,6 +33,25 @@ header {
   top: 0;
   left: 0;
 }
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 4px double $darkblue;
+  line-height: 40px;
+  vertical-align: center;
+  text-align: right;
+  width: 100%;
+  height: 40px;
+  background-color: #D8E2DC;
+  h5 {
+    padding-right: 10px;
+    a {
+      font-weight: bold;
+      color: inherit; 
+    }
+  }
+}
 h1 small {
   border-top: 1px solid $reddish;
 }
@@ -63,8 +82,8 @@ img.stage {
 /*Customized Scaffolding*/
 $text-color: #388697;
 $body-bg: #D8E2DC;
-$link-color: #DD7373;
 $link-hover-decoration: none;
+$link-color: #DD7373;
 
 .left {
   float: left;
@@ -103,7 +122,8 @@ $btn-default-color: #DD7373;
 
 /*Customized Carousel*/
 #candidateCarousel {
-  margin-top: 160px;
+  border-top: 4px double $blue;
+  margin-top: 110px;
 }
 .stats {
   border-top: 4px double $blue;
@@ -132,9 +152,11 @@ h1 {
   width: 40%;
   margin-bottom: -62px;
 }
-
 nav {
   padding-top: 0;
+}
+.nav-tabs {
+  border-radius: 0;
 }
 .carousel-control {
   height: 212.72px;
@@ -156,27 +178,55 @@ nav {
   background-repeat: repeat-x;
   line-height: 212.72px;
   vertical-align: center;
-  font-size: 2em;
 }
-
 .candPhoto {
   height: 212.72px;
 }
-
+.current {
+  background-color: $reddish;
+  color: $darkblue;
+  border-top: 4px double $bright-white;
+  padding-top: none;
+  width: 173.33px;
+  height: 48px;
+  text-align: center;
+    h4 {
+    small {
+      color: $bright-white;
+    }
+  }
+}
+.education {
+  margin-bottom: 0;
+}
 .positions {
   background-color: $darkblue;
   color: $bright-white;
   text-align: right;
   border-top: 4px double $bright-white;
 }
+.dropdown {
+  a {
+    color: $blue;
+  }
+  li {
+    padding: 0 3px;
+  }
+}
 
+.dropdown-menu {
+  border-radius: 0;
+}
 .positions h4,
 .positions ul, {
   margin-right: 16.66%;
 }
 
 .keepCarousel {
+  display: block;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
 }

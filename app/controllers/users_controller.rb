@@ -100,10 +100,7 @@ class UsersController < ApplicationController
       else
         @candArray[@i]["experience"] = "none available"
       end
-      # @candArray[@i][""] = @candBioHash
-      # @candArray[@i][""] = @candBioHash
   # <!-- Cal Votesmart API for Votes in prior offices -->
-    # bills.bill.categories.category*.name
       @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
       if @candidateVotes != nil
         @candVotesHash = @candidateVotes["bills"]

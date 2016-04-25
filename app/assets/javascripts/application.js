@@ -14,14 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-= require_tree .
-
-var carousel = $('.carousel').offset().top;
-
-$(window).scroll(function() {
-  if ($(window).scrollTop() > carousel) {
-    $('.carousel').addClass('keepCarousel');
-} else {
-    $('.carousel').removeClass('keepCarousel');
-}
-});
+//= require_tree .
