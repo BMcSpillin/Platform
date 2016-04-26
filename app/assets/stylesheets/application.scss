@@ -105,22 +105,13 @@ ul li {
   font-weight: bold;
   z-index: 3;
 }
-input.form-control {
-  width: 75%;
-}
-$input-bg: #FEFFFE;
-$input-border-focus: #DD7373;
+$input-bg: $bright-white;
+$input-border-focus: $reddish;
 
 /*Buttons*/
-$btn-default-color: #DD7373;
+$btn-default-color: $blue;
 .btn {
   height: 33.99px;
-}
-
-article {
-  font-size: 1.3em;
-  vertical-align: center;
-  color: $darkblue;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /* Cleanliness is next to Godliness: Bootstrap */
@@ -132,6 +123,21 @@ body {
   width: 100%;
   font-family: 'Gruppo', Helvetica, sans-serif;
   background-color: $bright-white;
+}
+// More forms
+input.form-control {
+  width: 75%;
+  color: $darkblue;
+}
+.form-control::-moz-placeholder {
+  color: $reddish;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: $reddish;
+}
+.form-control::-webkit-input-placeholder {
+  color: $reddish;
 }
 article.DFW {
   width: 60%;
@@ -223,6 +229,7 @@ nav {
 }
 .dropdown {
   background-color: $bright-white;
+  z-index: 1000;
   a {
     color: $blue;
   }

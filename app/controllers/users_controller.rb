@@ -13,12 +13,11 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:id])
     @user.address = params[:user][:address]
-    @user.save!
-    
     if @user.valid?
+      @user.save!
       redirect_to zip_path
     else
-      flash[:error] = @user.errors
+      flash[:error] = @user.error
       render :index
     end
   end

@@ -1,6 +1,8 @@
 <!-- Background Image -->
 <%= image_tag("emptyStage.png", class: "stage") %>
 
+<div id="DemoGradient"></div>
+
 <!-- Form adds address to database so SmartyStreets can infer 9-digit zip code -->
 <section class="form-group">
   <%= form_for :user, url: location_path do |f| %>
