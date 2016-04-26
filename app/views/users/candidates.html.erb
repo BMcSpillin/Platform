@@ -5,14 +5,14 @@
       <div class="row">
         <div class="col-md-2"></div>
         <article class="col-md-8 stats">
-          <p> “If you are bored and disgusted by politics and don't bother to vote, you are in effect voting for the entrenched Establishments of the two major parties, who please rest assured are not dumb, and who are keenly aware that it is in their interests to keep you disgusted and bored and cynical and to give you every possible reason to stay at home doing one-hitters and watching MTV on primary day. By all means stay home if you want, but don't bullshit yourself that you're not voting. In reality, there is no such thing as not voting: you either vote by voting, or you vote by staying home and tacitly doubling the value of some Diehard's vote.” </p>
-          <p> ― David Foster Wallace, "Up, Simba!" (2000)</p>
+          <h2 class="officeType">Congressional</h2>
         </article>
         <div class="col-md-2"></div>
       </div>
     </div>
   <% @candArray.each do |c| %>
-      <div class="item">
+    <% if c["electionOffice"] == "U.S. House" %>
+      <div class="item container">
         <div class="row">
           <div class="col-md-2"></div>
           <!-- Photo -->
@@ -20,103 +20,118 @@
             <img class="img-responsive candPhoto" src="<%= c['photo'] %>">
           </div>
           <section class="col-md-6 stats">
-            <!-- Name & Political Party-->
-            <% if c["ballotName"] != nil %>
-              <h2><%= c["ballotName"] %> <small><%= c["electionParties"] %></small></h2>
-            <% else %>
-              <h2><%= c["firstName"] + " " + c["lastName"] %> <small><%= c["electionParties"] %></small></h2>
-            <% end %>          
-        <!-- Candidacy -->
-            <h3>Running for <small><%= c["electionOffice"] %></small></h3> 
-        <!-- Experience -->
-            <% if c["officeName"] != nil %>
-                <h4>Currently Serving <small><%= c["officeName"] %></small></h4>
-            <% end %>
-        <!-- Education -->
-            <section class="dropdown">
-              <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-                <h4>Education<span class="caret"></span></h4>
-              </a>
-              <ul class="education dropdown-menu">
-                <% if c["education"].class == Array %>
-                  <% c["education"].each do |ed| %>
-                    <li><h4><small><%= ed["fullText"] %></h4></small></li>
-                  <% end %>
-                <% elsif c["education"].class == Hash %>
-                  <li><h4><small><%= c["education"]["fullText"] %></h4></small></li>
-                <% else %>
-                  <li><h4><small><%= c["education"] %></h4></small></li>
-                <% end %>
-              </ul>
-            </section>
-        <!-- Professional Life -->
-            <section class="dropdown">
-              <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-                <h4>Professional History<span class="caret"></span></h4>
-              </a>
-              <ul class="profession dropdown-menu">
-                <% if c["profession"].class == Array %>
-                  <% c["profession"].each do |pro| %>
-                    <li><h4><small><%= pro["fullText"] %></h4></small></li>
-                  <% end %>
-                <% elsif c["profession"].class == Hash %>
-                  <li><h4><small><%= c["profession"]["fullText"] %></h4></small></li>
-                <% else %>
-                  <li><h4><small><%= c["profession"] %></h4></small></li>
-                <% end %>
-              </ul>
-            </section>
-          </section>  
-          <div class="col-md-2"></div>
-        </div>
-        <div class="row">
-          <section class="col-md-12">
-            <aside class="positions">
-              <h4>Past Positions & Candidature</h4>
-              <ul>
-                <% if c["experience"].class == Array %>
-                  <% c["experience"].each do |ex| %>
-                    <li><%= ex["fullText"] %></li>
-                  <% end %>
-                <% elsif c["experience"].class == Hash %>
-                  <li><%= c["experience"]["fullText"] %></li>
-                <% else %>
-                  <%= c["experience"] %>
-                <% end %>
-              </ul>
-            </aside>
-          </section>
-        </div>
-        <!-- Voting Record -->
-        <% if c["votes"] != nil %>
-          <div class="row">
-            <div class="col-md-1"></div>
-              <section class="col-md-5">
-                <h3>Bill Title</h3>
-              </section>
-              <section class="col-md-2">
-                <h3>Office Held</h3>
-              </section>
-              <section class="col-md-3">
-                <h3>Candidate Voted</h3>
-              </section>
-            </div>
-          <% c["votes"]["bill"].each do |b| %>
             <div class="row">
-              <div class="col-md-1"></div>
-              <section class="col-md-5">
-                <h4><%= b["title"] %></h4>
-              </section>
-              <section class="col-md-2">
-                <h4><%= b["office"] %></h4>
-              </section>
-              <section class="col-md-3">
-                <h4><%= b["vote"] %></h4>
+        <!-- Name & Political Party-->
+              <% if c["ballotName"] != nil %>
+                <h2 class="col-md-12"><%= c["ballotName"] %> <small><%= c["electionParties"] %></small></h2>
+              <% else %>
+                <h2class="col-md-12"><%= c["firstName"] + " " + c["lastName"] %> <small><%= c["electionParties"] %></small></h2>
+              <% end %>
+            </div>
+        <!-- Candidacy -->
+            <div class="row">
+              <h3 class="col-md-12">Running for <small><%= c["electionOffice"] %></small></h3> 
+            </div>          
+        <!-- Current Experience -->
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Currently Serving <small><%= c["officeName"] %></small></h4>
+              </div>
+        <!-- Past Political Positions -->
+              <section class="dropdown col-md-6">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <h4>Past Positions & Candidature<span class="caret"></span></h4>
+                </a>
+                <!-- positions class -->
+                <ul class="dropdown-menu">
+                  <% if c["experience"].class == Array %>
+                    <% c["experience"].each do |ex| %>
+                      <li><h4><small><%= ex["fullText"] %></h4></small></li>
+                    <% end %>
+                  <% elsif c["experience"].class == Hash %>
+                    <li><h4><small><%= c["experience"]["fullText"] %></h4></small></li>
+                  <% else %>
+                    <li><h4><small><%= c["experience"] %></h4></small></li>
+                  <% end %>
+                </ul>
               </section>
             </div>
-          <% end %>
-        <% end %>
+        <!-- Education -->
+            <div class="row">
+              <section class="dropdown col-md-6">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <h4>Education<span class="caret"></span></h4>
+                </a>
+                <ul class="education dropdown-menu">
+                  <% if c["education"].class == Array %>
+                    <% c["education"].each do |ed| %>
+                      <li><h4><small><%= ed["fullText"] %></h4></small></li>
+                    <% end %>
+                  <% elsif c["education"].class == Hash %>
+                    <li><h4><small><%= c["education"]["fullText"] %></h4></small></li>
+                  <% else %>
+                    <li><h4><small><%= c["education"] %></h4></small></li>
+                  <% end %>
+                </ul>
+              </section>
+          <!-- Professional Life -->
+              <section class="dropdown col-md-6">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <h4>Professional History<span class="caret"></span></h4>
+                </a>
+                <ul class="profession dropdown-menu">
+                  <% if c["profession"].class == Array %>
+                    <% c["profession"].each do |pro| %>
+                      <li><h4><small><%= pro["fullText"] %></h4></small></li>
+                    <% end %>
+                  <% elsif c["profession"].class == Hash %>
+                    <li><h4><small><%= c["profession"]["fullText"] %></h4></small></li>
+                  <% else %>
+                    <li><h4><small><%= c["profession"] %></h4></small></li>
+                  <% end %>
+                </ul>
+              </section>
+            </div>
+        <!-- Voting Record -->
+            <div class="row">
+              <section class="dropdown col-md-12">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <h4>Voting Record<span class="caret"></span></h4>
+                </a>
+                <ul class="votes dropdown-menu">
+                  <% if c["votes"] != nil %>
+                    <section class="row">
+                      <div class="col-md-5">
+                        <li><h3>Bill Title</h3></li>
+                      </div>
+                      <div class="col-md-3">
+                        <li><h3>Office Held</h3></li>
+                      </div>
+                      <div class="col-md-2">
+                        <li><h3>Voted</h3></li>
+                      </div>
+                    </section>
+                    <% c["votes"]["bill"].each do |b| %>
+                      <section class="row">
+                        <div class="col-md-5">
+                          <li><h4><%= b["title"] %></h4></li>
+                        </div>
+                        <div class="col-md-3">
+                          <li><h4><%= b["office"] %></h4></li>
+                        </div>
+                        <div class="col-md-2">
+                          <li><h4><%= b["vote"] %></h4></li>
+                        </div>
+                      </section>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </section>
       </div>
+    <% end %>
   <% end %>
   </div>
     <!-- Carousel controls -->
