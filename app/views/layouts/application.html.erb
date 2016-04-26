@@ -3,8 +3,8 @@
 <head>
   <title>Platform</title>
   <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,13 +14,13 @@
     <nav class="navbar-right">
       <ul class="nav nav-tabs">
         <li role="presentation"><%= link_to "Home", root_path %>
-        <li role="presentation"><%= link_to "My Candidates", candidates_path %>
         <li role="presentation"><%= link_to "Register to Vote", "https://vote.usa.gov/", target: "_blank" %>
       </ul>
     </nav>
   </header>
 <%= yield %>
-
+  <footer>
+    <h5>All data displayed in this application has been generously provided by <a href="http://votesmart.org/" target="_blank">Project Vote Smart</a>
+  </footer>
 </body>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </html>

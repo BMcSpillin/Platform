@@ -32,6 +32,26 @@ header {
   position: absolute;
   top: 0;
   left: 0;
+  clear: both;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 4px double $darkblue;
+  line-height: 40px;
+  vertical-align: center;
+  text-align: right;
+  width: 100%;
+  height: 40px;
+  background-color: #D8E2DC;
+  h5 {
+    padding-right: 10px;
+    a {
+      font-weight: bold;
+      color: inherit; 
+    }
+  }
 }
 h1 small {
   border-top: 1px solid $reddish;
@@ -55,7 +75,7 @@ img.stage {
 
   /* Set up fadedness */
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.8;
 }
 .stage {
   width: 100%;
@@ -63,8 +83,8 @@ img.stage {
 /*Customized Scaffolding*/
 $text-color: #388697;
 $body-bg: #D8E2DC;
-$link-color: #DD7373;
 $link-hover-decoration: none;
+$link-color: #DD7373;
 
 .left {
   float: left;
@@ -72,15 +92,12 @@ $link-hover-decoration: none;
 .right {
   float: right;
 }
-
 .navbar-right {
   padding-right: 20px;
 }
-
 ul li {
   list-style: none;
 }
-
 /*Forms*/
 .form-group {
   width: 55%;
@@ -103,28 +120,41 @@ $btn-default-color: #DD7373;
 
 /*Customized Carousel*/
 #candidateCarousel {
-  margin-top: 160px;
-}
-.stats {
   border-top: 4px double $blue;
+  margin-top: 110px;
+  margin-bottom: 36px;
+}
+#candidateCarousel2 {
+  border-top: 4px double $blue;
+  margin-top: 110px;
+  margin-bottom: 50px;
 }
 article {
   font-size: 1.3em;
   vertical-align: center;
   color: $darkblue;
 }
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 /* Cleanliness is next to Godliness: Bootstrap */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 body {
   width: 100%;
   font-family: 'Gruppo', Helvetica, sans-serif;
   background-color: $bright-white;
 }
-
+article.DFW {
+  width: 60%;
+  border: 1px solid $reddish;
+  margin: 75px auto;
+  background-color: rgba(68.2, 92.5, 93.7, 0.8);
+  p {
+    padding: 10px;
+    color: $bright-white;
+  }
+}
 h1 {
   padding-left: 10px;
   line-height: 110px;
@@ -132,22 +162,34 @@ h1 {
   width: 40%;
   margin-bottom: -62px;
 }
-
+h2, h3 {
+  margin-top: 5px;
+}
 nav {
   padding-top: 0;
+}
+.nav-tabs {
+  border-radius: 0;
+}
+.carousel {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.carousel-inner {
+  overflow: visible;
 }
 .carousel-control {
   height: 212.72px;
 }
-
 .carousel-control.left {
   background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .5) 0%), color-stop(rgba(56, 134, 151, .0001) 100%));
   background-image:         linear-gradient(to right, rgba(56, 134, 151, .5) 0%, rgba(56, 134, 151, .0001) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
   background-repeat: repeat-x;
   line-height: 212.72px;
+  font-size: 100px;
   vertical-align: center;
-  font-size: 2em;
 }
 .carousel-control.right {
   background-image: -webkit-linear-gradient(left, color-stop(rgba(56, 134, 151, .0001) 0%), color-stop(rgba(56, 134, 151, .5) 100%));
@@ -155,28 +197,32 @@ nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
   background-repeat: repeat-x;
   line-height: 212.72px;
+  font-size: 100px;
   vertical-align: center;
-  font-size: 2em;
 }
-
+.officeType{
+  
+}
 .candPhoto {
   height: 212.72px;
 }
-
 .positions {
   background-color: $darkblue;
   color: $bright-white;
   text-align: right;
   border-top: 4px double $bright-white;
 }
-
-.positions h4,
-.positions ul, {
-  margin-right: 16.66%;
+.education {
+  margin-bottom: 0;
 }
-
-.keepCarousel {
-  position: fixed;
-  top: 0;
-  left: 0;
+.dropdown {
+  a {
+    color: $blue;
+  }
+  li {
+    padding: 0 3px;
+  }
+}
+.dropdown-menu {
+  border-radius: 0;
 }
