@@ -74,31 +74,41 @@ class UsersController < ApplicationController
       @candEducationHash = @candBioHash["education"]
       @candProfessionHash = @candBioHash["profession"]
       @candExperienceHash = @candBioHash["political"]
+      # @candOffice = @candBio["bio"]["office"]
 
+  # Office Type
+      # if @candOffice = nil
+      #   @candArray[@i]["office"] = "Other"
+      # elsif @candOffice["type"] != nil
+      #   @candArray[@i]["office"] = @candOffice["type"]
+      # elsif @candOffice["name"] != nil
+      #   @candArray[@i]["office"] = @candOffice["name"]
+      # else
+      #   @candArray[@i]["office"] = "Other"
+      # end
   # Photo or Placeholder
       if @candBioHash["photo"] != nil
         @candArray[@i]["photo"] = @candBioHash["photo"]
       else
         @candArray[@i]["photo"] = "assets/placeholder.png"
       end
-
   # Education
       if @candBioHash["education"] != nil
         @candArray[@i]["education"] = @candEducationHash["institution"]
       else
-        @candArray[@i]["education"] = "none available"
+        @candArray[@i]["education"] = "None Available"
       end
   # Profession
       if @candBioHash["profession"] != nil
         @candArray[@i]["profession"] = @candProfessionHash["experience"]
       else
-        @candArray[@i]["profession"] = "none available"
+        @candArray[@i]["profession"] = "None Available"
       end
   # Political Experience
       if @candExperienceHash != nil
         @candArray[@i]["experience"] = @candExperienceHash["experience"]
       else
-        @candArray[@i]["experience"] = "none available"
+        @candArray[@i]["experience"] = "Not Applicable"
       end
   # <!-- Cal Votesmart API for Votes in prior offices -->
       @candidateVotes = HTTParty.get "http://api.votesmart.org/Votes.getByOfficial?key=#{ENV['VOTESMART_API_KEY']}&candidateId=#{@Id}"
@@ -106,7 +116,7 @@ class UsersController < ApplicationController
         @candVotesHash = @candidateVotes["bills"]
         @candArray[@i]["votes"] = @candVotesHash
       else
-        @candArray[@i]["votes"] = {}
+        @candArray[@i]["votes"] = "Not Applicable"
       end
 
       @i += 1

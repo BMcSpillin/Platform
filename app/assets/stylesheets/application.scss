@@ -27,7 +27,7 @@ $gray: #D8E2DC;
 header {
   font-weight: bold;
   width: 100%;
-  height: 110px;
+  // height: 110px;
   background-color: #D8E2DC;
   position: absolute;
   top: 0;
@@ -118,17 +118,6 @@ $btn-default-color: #DD7373;
   height: 33.99px;
 }
 
-/*Customized Carousel*/
-#candidateCarousel {
-  border-top: 4px double $blue;
-  margin-top: 110px;
-  margin-bottom: 36px;
-}
-#candidateCarousel2 {
-  border-top: 4px double $blue;
-  margin-top: 110px;
-  margin-bottom: 50px;
-}
 article {
   font-size: 1.3em;
   vertical-align: center;
@@ -156,14 +145,17 @@ article.DFW {
   }
 }
 h1 {
-  padding-left: 10px;
-  line-height: 110px;
-  vertical-align: center;
+  padding: 5px 0 5px 10px;
   width: 40%;
-  margin-bottom: -62px;
+  margin-bottom: -35px;
 }
 h2, h3 {
-  margin-top: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h2 small {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 nav {
   padding-top: 0;
@@ -171,10 +163,25 @@ nav {
 .nav-tabs {
   border-radius: 0;
 }
+/*Customized Carousel*/
+#localCarousel{
+  margin-top: 110px;
+}
+#stateCarousel {
+  margin-top: 110px;
+}
+#federalCarousel {
+  margin-top: 110px;
+  margin-bottom: 50px;
+}
 .carousel {
   width: 100%;
   height: 100%;
-  float: left;
+  display: block;
+  position: relative;
+  border-top: 4px double $blue;
+  // margin-top: 110px;
+  // margin-bottom: 50px;
 }
 .carousel-inner {
   overflow: visible;
@@ -200,9 +207,6 @@ nav {
   font-size: 100px;
   vertical-align: center;
 }
-.officeType{
-  
-}
 .candPhoto {
   height: 212.72px;
 }
@@ -216,6 +220,7 @@ nav {
   margin-bottom: 0;
 }
 .dropdown {
+  background-color: $bright-white;
   a {
     color: $blue;
   }
