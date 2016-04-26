@@ -11,6 +11,7 @@
       </div>
     </div>
   <% @candArray.each do |c| %>
+  <!-- COMPARE CANDIDATES TO ARRAY OF LOCAL POSITIONS -->
     <% if @localOffices.include? c["electionOffice"] %>
       <div class="item container">
         <div class="row">
@@ -151,6 +152,7 @@
       </div>
     </div>
   <% @candArray.each do |c| %>
+  <!-- COMPARE CANDIDATES TO ARRAY OF STATE POSITIONS -->
     <% if @stateOffices.include? c["electionOffice"] %>
       <div class="item container">
         <div class="row">
@@ -165,7 +167,7 @@
               <% if c["ballotName"] != nil %>
                 <h2 class="col-md-12"><%= c["ballotName"] %> <small><%= c["electionParties"] %></small></h2>
               <% else %>
-                <h2class="col-md-12"><%= c["firstName"] + " " + c["lastName"] %> <small><%= c["electionParties"] %></small></h2>
+                <h2 class="col-md-12"><%= c["firstName"] + " " + c["lastName"] %> <small><%= c["electionParties"] %></small></h2>
               <% end %>
             </div>
         <!-- Candidacy -->
@@ -238,7 +240,10 @@
                 <a class="dropdown-toggle" type="button" data-toggle="dropdown">
                   <h4>Voting Record<span class="caret"></span></h4>
                 </a>
-                <ul class="votes dropdown-menu">
+                <style>
+                .dropdown-menu {z-index: 1000000;}
+                </style>
+                <ul class="dropdown-menu votes">
                   <% if c["votes"] != nil %>
                     <section class="row">
                       <div class="col-md-6">
@@ -291,6 +296,7 @@
       </div>
     </div>
   <% @candArray.each do |c| %>
+  <!-- COMPARE CANDIDATES TO ARRAY OF FEDERAL POSITIONS -->
     <% if @federalOffices.include? c["electionOffice"] %>
       <div class="item container">
         <div class="row">
@@ -393,13 +399,13 @@
                     <% c["votes"]["bill"].each do |b| %>
                       <section class="row">
                         <div class="col-md-6">
-                          <li><h4><%= b["title"] %></h4></li>
+                          <li><h5><%= b["title"] %></h5></li>
                         </div>
                         <div class="col-md-3">
-                          <li><h4><%= b["office"] %></h4></li>
+                          <li><h5><%= b["office"] %></h5></li>
                         </div>
                         <div class="col-md-1">
-                          <li><h4><%= b["vote"] %></h4></li>
+                          <li><h5><%= b["vote"] %></h5></li>
                         </div>
                       </section>
                     <% end %>
