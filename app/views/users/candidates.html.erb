@@ -11,7 +11,7 @@
       </div>
     </div>
   <% @candArray.each do |c| %>
-    <% if c["electionOffice"] == "Governor" || c["electionOffice"] == "Lieutenant Governor" %>
+    <% if @localOffices.include? c["electionOffice"] %>
       <div class="item container">
         <div class="row">
           <div class="col-md-2"></div>
@@ -102,25 +102,25 @@
                   <% if c["votes"] != nil %>
                     <section class="row">
                       <div class="col-md-6">
-                        <li><h3>Bill Title</h3></li>
+                        <li><h4>Bill Title</h4></li>
                       </div>
                       <div class="col-md-3">
-                        <li><h3>Office Held</h3></li>
+                        <li><h4>Office Held</h4></li>
                       </div>
                       <div class="col-md-1">
-                        <li><h3>Voted</h3></li>
+                        <li><h4>Voted</h4></li>
                       </div>
                     </section>
                     <% c["votes"]["bill"].each do |b| %>
                       <section class="row">
                         <div class="col-md-6">
-                          <li><h4><%= b["title"] %></h4></li>
+                          <li><h5><%= b["title"] %></h5></li>
                         </div>
                         <div class="col-md-3">
-                          <li><h4><%= b["office"] %></h4></li>
+                          <li><h5><%= b["office"] %></h5></li>
                         </div>
                         <div class="col-md-1">
-                          <li><h4><%= b["vote"] %></h4></li>
+                          <li><h5><%= b["vote"] %></h5></li>
                         </div>
                       </section>
                     <% end %>
@@ -151,7 +151,7 @@
       </div>
     </div>
   <% @candArray.each do |c| %>
-    <% if c["electionOffice"] == "Governor" || c["electionOffice"] == "Lieutenant Governor" %>
+    <% if @stateOffices.include? c["electionOffice"] %>
       <div class="item container">
         <div class="row">
           <div class="col-md-2"></div>
@@ -291,7 +291,7 @@
       </div>
     </div>
   <% @candArray.each do |c| %>
-    <% if c["electionOffice"] == "U.S. House" || c["electionOffice"] == "U.S. Senate" %>
+    <% if @federalOffices.include? c["electionOffice"] %>
       <div class="item container">
         <div class="row">
           <div class="col-md-2"></div>

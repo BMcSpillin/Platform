@@ -27,7 +27,6 @@ $gray: #D8E2DC;
 header {
   font-weight: bold;
   width: 100%;
-  // height: 110px;
   background-color: #D8E2DC;
   position: absolute;
   top: 0;
@@ -101,7 +100,7 @@ ul li {
 /*Forms*/
 .form-group {
   width: 55%;
-  margin: 160px auto;
+  margin: 140px auto;
   font-family: 'Gruppo', Helvetica, sans-serif;
   font-weight: bold;
   z-index: 3;
@@ -149,13 +148,19 @@ h1 {
   width: 40%;
   margin-bottom: -35px;
 }
-h2, h3 {
-  margin-top: 0;
+h2 {
+  margin-top: 5px;
   margin-bottom: 0;
+}
+h3 {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 h2 small {
   margin-top: 0;
-  margin-bottom: 0;
+}
+h4 {
+  display: inline;
 }
 nav {
   padding-top: 0;
@@ -165,23 +170,20 @@ nav {
 }
 /*Customized Carousel*/
 #localCarousel{
-  margin-top: 110px;
+  margin-top: 75px;
 }
 #stateCarousel {
-  margin-top: 110px;
+
 }
 #federalCarousel {
-  margin-top: 110px;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 .carousel {
   width: 100%;
-  height: 100%;
+  height: 212.72px;
   display: block;
   position: relative;
   border-top: 4px double $blue;
-  // margin-top: 110px;
-  // margin-bottom: 50px;
 }
 .carousel-inner {
   overflow: visible;
@@ -230,4 +232,6 @@ nav {
 }
 .dropdown-menu {
   border-radius: 0;
+  background-color: $bright-white;
+  z-index: 1000;
 }
